@@ -64,11 +64,10 @@ class DetailsMovieActivity : AppCompatActivity() {
        for (genre in movie?.genres!!){
             gen +=  "${genre.name},"
         }
-        binding.detailsMovie.text = movie?.title
-        binding.tvVoteAverage.text = movie?.vote_average.toString()
-        binding.tvOverview.text = movie?.overview.toString()
-        binding.tvGenre.text = gen
-        Log.d(Constant.FINDBUG, "initMovieDetail: "+Constant.IMAGE_URL+movie.poster_path)
+        binding.detailsMovie.text = "Judul ${movie?.title}"
+        binding.tvVoteAverage.text = "Rating : ${movie?.vote_average}"
+        binding.tvOverview.text = "Sinopsis : \n ${movie?.overview}"
+        binding.tvGenre.text = "Genre : $gen"
         Glide.with(applicationContext)
             .load(Constant.IMAGE_URL+movie.poster_path)
             .thumbnail(0.25f)
